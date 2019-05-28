@@ -1,0 +1,578 @@
+BODY
+{
+	font-family: Arial, Helvetica, sans-serif;
+	width: 100% !important;
+	margin: auto !important;
+	background-color: white;
+	border: 1px solid black;
+	word-wrap: break-word;
+	overflow-x: hidden;
+	display: ;
+}
+HEADER
+{
+	border-bottom: 2px solid black;
+	padding: 0.5em 0;
+}
+.BannerMessage
+{
+	background: #C7DD3E;
+	text-align: center;
+	font-size: large;
+	font-style: oblique;
+}
+HEADER H1
+{
+	color: black;
+}
+MAIN
+{
+	margin-bottom: 1em;
+	float: left;
+	width: auto;
+}
+ASIDE
+{
+	float: left;
+	position: fixed;
+	display: none;
+	width: 100%;
+	height: auto;
+	left: 0px;
+	opacity: 0;
+	top: 0px !important;
+	z-index: 100;
+	background: #130D47;
+	opacity: 1;
+}
+SECTION
+{
+	float: left;
+	width: 500px;
+}
+FOOTER
+{
+	clear: both;
+	width: 100%;
+	border-top: 2px solid black;
+}
+FOOTER P
+{
+	text-align: right;
+	font-size: 80%;
+}
+H1
+{
+	font-size: 150%;
+	margin: 0.5em 0 0.25em;
+}
+H2
+{
+	font-size: 120%;
+	margin: 0.5em 0;
+}
+H1, H2
+{
+	color: rgb(208, 133, 4);
+}
+P
+{
+	margin: 0.5em 0;
+}
+UL
+{
+	list-style-type: none;
+	margin: 0;
+	padding-left: 0;
+}
+LI
+{
+	padding-bottom: 0.5em;
+}
+A
+{
+	color: rgb(41, 64, 124);
+	font-weight: bold;
+}
+A:hover
+{
+	color: rgb(208, 133, 4);
+}
+LABEL
+{
+	width: 8em;
+	padding-right: 0.5em;
+	padding-top: 0.25em;
+	padding-bottom: 0.5em;
+	text-align: right;
+	float: left;
+}
+TEXTAREA
+{
+	font-family: Arial, Helvetica, sans-serif;
+	width: 25em;
+	margin-bottom: 0.5em;
+}
+BR
+{
+	clear: both;
+}
+TABLE
+{
+	border-collapse: collapse;
+}
+TD, TH
+{
+	margin: 0;
+	padding: 0.25em;
+}
+IMG
+{
+	width: 100%;
+}
+FORM
+{
+}
+/*Animations*/
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes menuDownAni
+{
+	0%
+	{
+		top: -350px;
+	}
+	100%
+	{
+		top: 0px;
+	}
+}
+/* Standard syntax */
+@keyframes MenuDownAni
+{
+	0%
+	{
+		top: -380px;
+	}
+	100%
+	{
+		top: 0px;
+	}
+}
+@-webkit-keyframes menuUpAni
+{
+	0%
+	{
+		top: 0px;
+	}
+	100%
+	{
+		top: -380px;
+	}
+}
+/* Standard syntax */
+@keyframes menuUpAni
+{
+	0%
+	{
+		top: 0px;
+	}
+	100%
+	{
+		top: -430px;
+	}
+}
+/*MENU HIDE AND DROPDOWN*/
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes showMenu
+{
+	0%
+	{
+		top: 380px;
+	}
+	100%
+	{
+		top: 25px;
+	}
+}
+/* Standard syntax */
+@keyframes showMenu
+{
+	0%
+	{
+		top: 380px;
+	}
+	100%
+	{
+		top: 25px;
+	}
+}
+@-webkit-keyframes hideMenu
+{
+	0%
+	{
+		top: 25px;
+	}
+	100%
+	{
+		top: 380px;
+	}
+}
+/* Standard syntax */
+@keyframes hideMenu
+{
+	0%
+	{
+		top: 25px;
+	}
+	100%
+	{
+		top: 380px;
+	}
+}
+/* the styles for the div tags that divide the page into sections */
+#left_column
+{
+	float: left;
+	width: 150px;
+}
+#right_column
+{
+	float: left;
+	padding-left: 1em;
+	padding-bottom: 0.5em;
+	width: 330px;
+}
+#left_column P IMG
+{
+	text-align: center;
+}
+#right_column UL
+{
+	list-style-type: disc;
+	padding-left: 2em;
+	margin-top: 0.25em;
+}
+/*Positioning Styles*/
+.clearfix
+{
+	clear: both;
+	width: 100%;
+}
+.alignVertically
+{
+	margin-top: 82%;
+}
+.vertical-center
+{
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.center
+{
+	text-align: center;
+}
+/* styles for the classes */
+.right
+{
+	text-align: right;
+}
+.left
+{
+	text-align: left;
+}
+.button_form
+{
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+.inline
+{
+	display: inline;
+	margin-left: 0.5em;
+}
+.nofloat
+{
+	float: none;
+}
+.error
+{
+	color: red;
+}
+/*RSS Styles*/
+.recentBlogsBox
+{
+	/*\*/
+	width: 100%;
+	text-align: center;
+	align-content: center;
+	height: 800px;
+	overflow: hidden;
+	background: #8DB0DE;
+}
+.displayBlogStub
+{
+	height: 700px;
+	margin: auto;
+	left: 35%;
+	overflow: hidden;
+	width: auto;
+	background: #D3D0EF;
+}
+.displayBlogImg
+{
+	height: 100%;
+	object-fit: cover;
+}
+.displayBlogList
+{
+	left: 26%;
+	height: 700px;
+	background: #6EC2E5;
+	overflow: visible;
+}
+.blogPicker
+{
+	height: 31%;
+	padding: 10px;
+	object-fit: cover;
+}
+/* styles for the ids */
+#menu
+{
+	display: none;
+}
+.menuClick
+{
+	display: none;
+	text-align: left;
+}
+.menuUp
+{
+	-webkit-animation: menuUpAni .6s linear forwards;
+	/* Safari 4.0 - 8.0 */
+	/* Safari 4.0 - 8.0 */
+	animation: menuUpAni 0.6s linear forwards;
+}
+.menuDown
+{
+	-webkit-animation-name: example;
+	display: block;
+	/* Safari 4.0 - 8.0 */
+	-webkit-animation-duration: 1s;
+	/* Safari 4.0 - 8.0 */
+	animation-name: menuDownAni;
+	animation-duration: 1s;
+}
+.menuClickStatic
+{
+	position: fixed;
+	right: 25px;
+	font-size: 25px;
+}
+.menuClick
+{
+	top: 25px;
+}
+#menuClick1
+{
+	-webkit-animation-name: showMenu;
+	/* Safari 4.0 - 8.0 */
+	-webkit-animation-duration: 1s;
+	/* Safari 4.0 - 8.0 */
+	animation-duration: 1s;
+	z-index: 100;
+}
+#menuClick2
+{
+	-webkit-animation-name: hideMenu;
+	top: 380px;
+	z-index: 100;
+	/* Safari 4.0 - 8.0 */
+	-webkit-animation-duration: 1s;
+	/* Safari 4.0 - 8.0 */
+	animation-name: hideMenu;
+	animation-duration: 1s;
+	display: none;
+}
+#category_table FORM
+{
+	margin: 0;
+}
+#category_table TD
+{
+	margin: 0;
+	padding: 0.15em 0.5em 0 0;
+}
+#add_category_form
+{
+	margin: 0;
+}
+#add_category_form INPUT
+{
+	margin-right: 0.5em;
+}
+#add_admin_user_form LABEL
+{
+	width: 8.5em;
+}
+#edit_and_delete_buttons
+{
+	margin-bottom: 0.5em;
+}
+#edit_and_delete_buttons FORM
+{
+	display: inline;
+}
+#image_manager INPUT
+{
+	margin: 0.25em;
+}
+.product_image_column
+{
+	width: 8em;
+	text-align: center;
+}
+#add_to_cart_form
+{
+	margin: 0.25em;
+}
+#add_to_cart_form INPUT
+{
+	float: none;
+}
+#cart
+{
+	margin: 0;
+	padding: 1em 0.25em;
+	border-collapse: collapse;
+	width: 100%;
+}
+#cart_header TH
+{
+	border-bottom: 2px solid black;
+}
+#cart_footer TD
+{
+	border-top: 2px solid black;
+	font-weight: bold;
+}
+#login_form
+{
+	margin-top: 0.5em;
+}
+#login_form LABEL
+{
+	text-align: left;
+	width: 5em;
+	padding-right: 1em;
+}
+#login_form INPUT[text]
+{
+	background-color: red;
+}
+#register_form LABEL
+{
+	width: 10em;
+}
+#edit_account_form LABEL
+{
+	width: 9em;
+}
+#payment_form LABEL
+{
+	width: 8em;
+	padding-right: 1em;
+}
+#payment_form INPUT[text]
+{
+	width: 5em;
+	margin: 0;
+	padding-right: 1em;
+}
+#add_category LABEL
+{
+	text-align: left;
+	width: 3em;
+}
+#add_category INPUT
+{
+	margin-right: 0.25em;
+}
+#formatting_directions H2
+{
+	padding-top: 1em;
+}
+#formatting_directions UL
+{
+	list-style-type: disc;
+	margin-top: 0;
+	padding-left: 1em;
+	padding-bottom: 1em;
+}
+#copyright
+{
+	margin: 1em 0;
+}
+/*PARRALAX*/
+.wrapper
+{
+	/* The height needs to be set to a fixed value for the effect to work.
+ * 	 *    * 100vh is the full height of the viewport. */
+	height: 100vh;
+	/* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+	overflow-x: hidden;
+	/* Enable scrolling on the page. */
+	overflow-y: auto;
+	/* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+	perspective: 2px;
+}
+.section
+{
+	/* Needed for children to be absolutely positioned relative to the parent. */
+	position: relative;
+	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+	height: 100vh;
+	/* For text formatting. */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	text-shadow: 0 0 5px #000;
+}
+.parallax::after
+{
+	/* Display and position the pseudo-element */
+	content: " ";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/* Move the pseudo-element back away from the camera,
+ * 	 *    * then scale it back up to fill the viewport.
+ * 	 	 *       * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+	transform: translateZ(-1px) scale(1.5);
+	/* Force the background image to fill the whole element. */
+	background-size: 100%;
+	/* Keep the image from overlapping sibling elements. */
+	z-index: -1;
+}
+/* The styling for the static div. */
+.static
+{
+	background: red;
+}
+/* Sets the actual background images to adorable kitties. This part is crucial. */
+.bg1::after
+{
+	background-image: url('https://placekitten.com/g/900/700');
+}
+.bg2::after
+{
+	background-image: url('https://placekitten.com/g/800/600');
+}
+

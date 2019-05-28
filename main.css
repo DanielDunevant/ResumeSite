@@ -1,0 +1,333 @@
+/* the styles for the HTML elements */
+html {
+    background-color: rgb(50, 77, 226);
+    overflow-x: hidden;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90% !important;
+    margin: auto !important;
+    padding: 1.9em;
+    background-color: white;
+    border: 1px solid black;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    display: ;
+}
+header {
+    border-bottom: 2px solid black;
+    padding: 0.5em 0;
+}
+header h1 {
+    color: black;
+}
+main {
+    margin-bottom: 1em;
+    float: left;
+    width: auto;
+}
+aside {
+    float: left;
+    position: fixed;
+    width: 300px;
+    padding-left: 15px;
+    height: 100%;
+    left: 0px;
+    opacity: 1;
+    top: -7px;
+    margin: 0.5em 0;
+    z-index: 100;
+    -webkit-animation-name: example;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+    background: #130D47;
+    opacity: 0;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    0% {
+        width: 30%;
+    }
+    100% {
+        width: 0%;
+        opacity: 0;
+    }
+}
+/* Standard syntax */
+@keyframes example {
+    0% {
+        width: 30%;
+    }
+    100% {
+        width: 0%;
+        opacity: 0;
+    }
+}
+section {
+    float: left;
+    width: 500px;
+}
+footer {
+    clear: both;
+    width: 100%;
+    border-top: 2px solid black;
+}
+footer p {
+    text-align: right;
+    font-size: 80%;
+}
+h1 {
+    font-size: 150%;
+    margin: 0.5em 0 0.25em;
+}
+h2 {
+    font-size: 120%;
+    margin: 0.5em 0;
+}
+h1, h2 {
+    color: rgb(208, 133, 4);
+}
+p {
+    margin: 0.5em 0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+}
+li {
+    padding-bottom: 0.5em;
+}
+a {
+    color: rgb(41, 64, 124);
+    font-weight: bold;
+}
+a:hover {
+    color: rgb(208, 133, 4);
+}
+label {
+    width: 8em;
+    padding-right: 0.5em;
+    padding-top: 0.25em;
+    padding-bottom: 0.5em;
+    text-align: right;
+    float: left;
+}
+textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 25em;
+    margin-bottom: 0.5em;
+}
+br {
+    clear: both;
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+    margin: 0;
+    padding: 0.25em;
+}
+img {
+    width: 100%;
+}
+form {
+}
+/* the styles for the div tags that divide the page into sections */
+#left_column {
+    float: left;
+    width: 150px;
+}
+#right_column {
+    float: left;
+    padding-left: 1em;
+    padding-bottom: 0.5em;
+    width: 330px;
+}
+#left_column p img {
+    text-align: center;
+}
+#right_column ul {
+    list-style-type: disc;
+    padding-left: 2em;
+    margin-top: 0.25em;
+}
+/*Positioning Styles*/
+.clearfix {
+    clear: both;
+    width: 100%;
+}
+.alignVertically {
+    margin-top: 82%;
+}
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+/* styles for the classes */
+.right {
+    text-align: right;
+}
+.left {
+    text-align: left;
+}
+.cart_qty {
+    text-align: right;
+    width: 3em;
+}
+.button_form {
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+.inline {
+    display: inline;
+    margin-left: 0.5em;
+}
+.nofloat {
+    float: none;
+}
+.error {
+    color: red;
+}
+/*RSS Styles*/
+.recentBlogsBox {
+    /*\*/
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    height: 800px;
+    overflow: hidden;
+    background: #8DB0DE;
+}
+.displayBlogStub {
+    height: 700px;
+    margin: auto;
+    left: 35%;
+    overflow: hidden;
+    width: auto;
+    background: #D3D0EF;
+}
+.displayBlogImg {
+    height: 100%;
+    object-fit: cover;
+}
+.displayBlogList {
+    left: 26%;
+    height: 700px;
+    background: #6EC2E5;
+    overflow: visible;
+}
+.blogPicker {
+    height: 31%;
+    padding: 10px;
+    object-fit: cover;
+}
+/* styles for the ids */
+#category_table form {
+    margin: 0;
+}
+#category_table td {
+    margin: 0;
+    padding: 0.15em 0.5em 0 0;
+}
+#add_category_form {
+    margin: 0;
+}
+#add_category_form input {
+    margin-right: 0.5em;
+}
+#add_admin_user_form label {
+    width: 8.5em;
+}
+#edit_and_delete_buttons {
+    margin-bottom: 0.5em;
+}
+#edit_and_delete_buttons form {
+    display: inline;
+}
+#image_manager input {
+    margin: 0.25em;
+}
+.product_image_column {
+    width: 8em;
+    text-align: center;
+}
+#add_to_cart_form {
+    margin: 0.25em;
+}
+#add_to_cart_form input {
+    float: none;
+}
+#cart {
+    margin: 0;
+    padding: 1em 0.25em;
+    border-collapse: collapse;
+    width: 100%;
+}
+#cart_header th {
+    border-bottom: 2px solid black;
+}
+#cart_footer td {
+    border-top: 2px solid black;
+    font-weight: bold;
+}
+#login_form {
+    margin-top: 0.5em;
+}
+#login_form label {
+    text-align: left;
+    width: 5em;
+    padding-right: 1em;
+}
+#login_form input[text] {
+    background-color: red;
+}
+#register_form label {
+    width: 10em;
+}
+#edit_account_form label {
+    width: 9em;
+}
+#payment_form label {
+    width: 8em;
+    padding-right: 1em;
+}
+#payment_form input[text] {
+    width: 5em;
+    margin: 0;
+    padding-right: 1em;
+}
+#add_category label {
+    text-align: left;
+    width: 3em;
+}
+#add_category input {
+    margin-right: 0.25em;
+}
+#formatting_directions h2 {
+    padding-top: 1em;
+}
+#formatting_directions ul {
+    list-style-type: disc;
+    margin-top: 0;
+    padding-left: 1em;
+    padding-bottom: 1em;
+}
+#copyright {
+    margin: 1em 0;
+}

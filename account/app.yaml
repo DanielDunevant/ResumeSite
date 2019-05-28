@@ -1,0 +1,16 @@
+runtime : php55
+api_version : 1
+threadsafe : true
+handlers:
+- url: /.*
+  script: index.php
+- url: /.*
+  script: lock.php
+- url: /css/.*
+  script: main.css-
+- url: /errors
+  static_dir: errors
+- url: /blog
+  static_dir: blog
+- url: /account
+  static_dir: account
