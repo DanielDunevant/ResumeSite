@@ -12,6 +12,7 @@ BODY
 HEADER
 {
 	border-bottom: 2px solid black;
+	position: relative;
 	padding: 0.5em 0;
 }
 .BannerMessage
@@ -36,19 +37,35 @@ ASIDE
 	float: left;
 	position: fixed;
 	display: none;
+	padding-bottom: 10px;
+	padding-left: 100px;
 	width: 100%;
 	height: auto;
 	left: 0px;
 	opacity: 0;
 	top: 0px !important;
 	z-index: 100;
-	background: #130D47;
+	background: #FFFFFF;
 	opacity: 1;
 }
 SECTION
 {
 	float: left;
 	width: 500px;
+}
+@media screen and (min-width: 500px)
+{
+	.headerLinks
+	{
+		float: left;
+		display: inline-block;
+		margin: 0px 10px;
+		text-align: center;
+	}
+	.header-right
+	{
+		float: none;
+	}
 }
 FOOTER
 {
@@ -183,7 +200,7 @@ FORM
 }
 /*MENU HIDE AND DROPDOWN*/
 /* Safari 4.0 - 8.0 */
-@-webkit-keyframes showMenu
+/*@-webkit-keyframes showMenu
 {
 	0%
 	{
@@ -193,9 +210,9 @@ FORM
 	{
 		top: 25px;
 	}
-}
+}*/
 /* Standard syntax */
-@keyframes showMenu
+/*@keyframes showMenu
 {
 	0%
 	{
@@ -205,8 +222,8 @@ FORM
 	{
 		top: 25px;
 	}
-}
-@-webkit-keyframes hideMenu
+}*/
+/*@-webkit-keyframes hideMenu
 {
 	0%
 	{
@@ -216,9 +233,9 @@ FORM
 	{
 		top: 380px;
 	}
-}
+}*/
 /* Standard syntax */
-@keyframes hideMenu
+/*@keyframes hideMenu
 {
 	0%
 	{
@@ -228,7 +245,7 @@ FORM
 	{
 		top: 380px;
 	}
-}
+}*/
 /* the styles for the div tags that divide the page into sections */
 #left_column
 {
@@ -344,6 +361,8 @@ FORM
 #menu
 {
 	display: none;
+	text-align: center;
+	align-content: center;
 }
 .menuClick
 {
@@ -377,26 +396,22 @@ FORM
 {
 	top: 25px;
 }
-#menuClick1
-{
-	-webkit-animation-name: showMenu;
-	/* Safari 4.0 - 8.0 */
-	-webkit-animation-duration: 1s;
-	/* Safari 4.0 - 8.0 */
-	animation-duration: 1s;
-	z-index: 100;
-}
 #menuClick2
 {
 	-webkit-animation-name: hideMenu;
-	top: 380px;
 	z-index: 100;
-	/* Safari 4.0 - 8.0 */
+	top: 25px;
 	-webkit-animation-duration: 1s;
-	/* Safari 4.0 - 8.0 */
 	animation-name: hideMenu;
 	animation-duration: 1s;
 	display: none;
+}
+#menuClick1
+{
+	-webkit-animation-name: showMenu;
+	-webkit-animation-duration: .7s;
+	animation-duration: 0.7s;
+	z-index: 100;
 }
 #category_table FORM
 {
@@ -521,7 +536,7 @@ FORM
 .wrapper
 {
 	/* The height needs to be set to a fixed value for the effect to work.
- * 	 *    * 100vh is the full height of the viewport. */
+	 * 	 *    * 100vh is the full height of the viewport. */
 	height: 100vh;
 	/* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
 	overflow-x: hidden;
@@ -536,11 +551,13 @@ FORM
 	position: relative;
 	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
 	height: 100vh;
+	width: 100%;
 	/* For text formatting. */
 	display: flex;
+	clear: both;
 	align-items: center;
 	justify-content: center;
-	color: white;
+	color: #1F4DF0;
 	text-shadow: 0 0 5px #000;
 }
 .parallax::after
@@ -553,8 +570,8 @@ FORM
 	bottom: 0;
 	left: 0;
 	/* Move the pseudo-element back away from the camera,
- * 	 *    * then scale it back up to fill the viewport.
- * 	 	 *       * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+	 * 	 *    * then scale it back up to fill the viewport.
+	 * 	 	 *       * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
 	transform: translateZ(-1px) scale(1.5);
 	/* Force the background image to fill the whole element. */
 	background-size: 100%;
@@ -564,15 +581,14 @@ FORM
 /* The styling for the static div. */
 .static
 {
-	background: red;
+	background: #311855;
 }
 /* Sets the actual background images to adorable kitties. This part is crucial. */
 .bg1::after
 {
-	background-image: url('https://placekitten.com/g/900/700');
+	background: url('https://placekitten.com/g/900/700') bottom right / 100px scroll content-box padding-box;
 }
 .bg2::after
 {
-	background-image: url('https://placekitten.com/g/800/600');
+	background: url('https://placekitten.com/g/800/600') center top / 100px scroll;
 }
-
