@@ -7,19 +7,11 @@
 		$resumes_url = '/resume';
 		$blogs_url =  '/blog';
 		$logout_url = $account_url . '?action=logout';
-		if (isset($_SESSION['user'])){ 
-			print"<h2 class ='headerLinks'><a href=\"$account_url\">My Account ( ".(isset($_SESSION['rank'])?"Admin":"Regular")." user )</a></h2>";
-			print"<h2 class = 'headerLinks'><a href=\"$logout_url\">Logout</a></h2>";
-		}else{
-		print"<h2 class='headerLinks'><a href=\"$account_url\">Login/Register</a></h2>";
-		}
-	 ?>
-	<li>
-		<a class='headerLinks' href="<?php echo ''; ?>">Home</a>
-	</li>
+	?>
+	<h2><a class='headerLinks' href="<?php echo ''; ?>">Home</a></h2>
 	<h2><a class='headerLinks' href="<?php echo $about_url ;?>">About</a></h2>
 	<h2><a class='headerLinks' href="<?php echo $plans_url;?>">Plans</a></h2>
-	1<h2><a class='headerLinks' href="<?php echo $parralax_url;?>">Parralax</a></h2>
+	<h2><a class='headerLinks' href="<?php echo $parralax_url;?>">Parralax</a></h2>
 	<h2><a class='headerLinks' href="<?php echo $resumes_url ;?>">Resumes</a></h2>
 	<h2><a class='headerLinks' href="<?php echo $blogs_url ;?>">Blogs</a></h2>
 	<ul>
@@ -44,7 +36,15 @@
 		       	print("<a class='headerLinks' href = '$url'>$blogType</a>");
 		?>
 		<?php
-		endforeach; ?>
+			endforeach; ?>
+		<?php
+		if (isset($_SESSION['user'])){ 
+			print"<h2 class ='headerLinks'><a href=\"$account_url\">My Account ( ".(isset($_SESSION['rank'])?"Admin":"Regular")." user )</a></h2>";
+			print"<h2 class = 'headerLinks'><a href=\"$logout_url\">Logout</a></h2>";
+		}else{
+		print"<h2 class='headerLinks'><a href=\"$account_url\">Login/Register</a></h2>";
+		}
+	 ?>
 </aside>
 
 <i onclick="hideMe()" class="menuClickStatic menuClick fas fa-bars" id="menuClick1"></i>
