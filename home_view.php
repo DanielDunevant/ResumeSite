@@ -1,11 +1,10 @@
 <?php include 'view/header.php'; ?>
 <?php include 'view/sidebar.php'; ?>
-<main class="wrapper">
-	<section class="section parallax bg1">
-		<h1>Placeholder Kitties</h1>
+	<section class="section vH60 parallax bg1">
+		<h1 class="center">Placeholder Kitties</h1>
 	</section>
-	<div class = "rectangle section static">
-		<h1>me Website</h1>
+	<div class = "section vH60 sky">
+		<h1>My Website</h1><br>
 		<p>Hi visiter. This site is about showing what I do and plan to do as a programmer.
 		There's also some content like a blog and such non-sense. If you're a potential employer
 		you can take a look at my resumes at the resume link or look at what projects I'm working on
@@ -16,8 +15,7 @@
 		both  organized and has the added  benefit of  modularization.
     		</p>
 	</div>
-	<section class="section parallax bg2">
-		<h1>Placeholder Kitties</h1>
+	<section class="section vH60 parallax bg2">
+		<h1 class="center">Placeholder Kitties</h1>
 	</section>
-</main>
 <?php include 'view/footer.php'; ?>

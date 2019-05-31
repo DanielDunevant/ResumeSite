@@ -49,7 +49,13 @@
 
 <i onclick="hideMe()" class="menuClickStatic menuClick fas fa-bars" id="menuClick1"></i>
 <i onclick="hideMe()" class="menuClickStatic fas fa-bars" id="menuClick2"></i>
-
+	<div class="wrapper">
+	<div class="section vH20 sky">
+		<p class="BannerMessage">Site Under Construction</p>
+		<header>
+    			<h1 id ="title">DanielJohnDunevant.io</h1>
+		</header>
+	</div>
 <script>
 function hideMe() {
   var x = document.getElementById("menu");

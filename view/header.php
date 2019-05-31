@@ -18,8 +18,4 @@
 	 </script>
 </head>
 
-<body >
-<p class="BannerMessage">Site Under Construction</p>
-<header>
-    	<h1>DanielJohnDunevant.io</h1>
-</header>
+<body>

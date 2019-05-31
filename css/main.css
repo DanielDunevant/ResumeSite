@@ -1,13 +1,27 @@
+.BannerMessage
+{
+	background: #C7DD3E;
+	clear: both;
+	text-align: center;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	display: block;
+	position: absolute !important;
+	font-size: large;
+	font-style: oblique;
+}
 BODY
 {
-	font-family: Arial, Helvetica, sans-serif;
-	width: 100% !important;
-	margin: auto !important;
-	background-color: white;
-	border: 1px solid black;
-	word-wrap: break-word;
+	/* The height needs to be set to a fixed value for the effect to work.
+	 * 	 *    * 100vh is the full height of the viewport. */
+	height: 100vh;
+	/* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
 	overflow-x: hidden;
-	display: ;
+	/* Enable scrolling on the page. */
+	overflow-y: auto;
+	/* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+	perspective: 2px;
 }
 HEADER
 {
@@ -15,16 +29,14 @@ HEADER
 	position: relative;
 	padding: 0.5em 0;
 }
-.BannerMessage
-{
-	background: #C7DD3E;
-	text-align: center;
-	font-size: large;
-	font-style: oblique;
-}
 HEADER H1
 {
 	color: black;
+}
+#title
+{
+	position: relative;
+	text-align: center;
 }
 MAIN
 {
@@ -40,13 +52,17 @@ ASIDE
 	padding-bottom: 10px;
 	padding-left: 100px;
 	width: 100%;
-	height: auto;
+	height: auto !important;
 	left: 0px;
 	opacity: 0;
 	top: 0px !important;
 	z-index: 100;
 	background: #FFFFFF;
 	opacity: 1;
+	/*+box-shadow: 0 0;*/
+	-moz-box-shadow: 0 0;
+	-webkit-box-shadow: 0 0;
+	box-shadow: 0 0;
 }
 SECTION
 {
@@ -61,10 +77,6 @@ SECTION
 		display: inline-block;
 		margin: 0px 10px;
 		text-align: center;
-	}
-	.header-right
-	{
-		float: none;
 	}
 }
 FOOTER
@@ -81,7 +93,7 @@ FOOTER P
 H1
 {
 	font-size: 150%;
-	margin: 0.5em 0 0.25em;
+	text-align: left;
 }
 H2
 {
@@ -200,52 +212,52 @@ FORM
 }
 /*MENU HIDE AND DROPDOWN*/
 /* Safari 4.0 - 8.0 */
-/*@-webkit-keyframes showMenu
-{
-	0%
-	{
-		top: 380px;
-	}
-	100%
-	{
-		top: 25px;
-	}
-}*/
 /* Standard syntax */
-/*@keyframes showMenu
+@-webkit-keyframes menuDownAni
 {
 	0%
 	{
-		top: 380px;
+		top: -380px;
 	}
 	100%
 	{
-		top: 25px;
+		top: 0px;
 	}
-}*/
-/*@-webkit-keyframes hideMenu
+}
+@keyframes MenuDownAni
 {
 	0%
 	{
-		top: 25px;
+		top: -380px;
 	}
 	100%
 	{
-		top: 380px;
+		top: 0px;
 	}
-}*/
+}
+@-webkit-keyframes menuUpAni
+{
+	0%
+	{
+		top: 0px;
+	}
+	100%
+	{
+		top: -380px;
+	}
+}
 /* Standard syntax */
-/*@keyframes hideMenu
+@keyframes menuUpAni
 {
 	0%
 	{
-		top: 25px;
+		top: 0px;
 	}
 	100%
 	{
-		top: 380px;
+		top: -430px;
 	}
-}*/
+}
 /* the styles for the div tags that divide the page into sections */
 #left_column
 {
@@ -290,6 +302,8 @@ FORM
 .center
 {
 	text-align: center;
+	top: 40%;
+	position: absolute;
 }
 /* styles for the classes */
 .right
@@ -550,15 +564,41 @@ FORM
 	/* Needed for children to be absolutely positioned relative to the parent. */
 	position: relative;
 	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
-	height: 100vh;
 	width: 100%;
 	/* For text formatting. */
-	display: flex;
+	display: block;
 	clear: both;
+	text-align: center;
 	align-items: center;
 	justify-content: center;
 	color: #1F4DF0;
 	text-shadow: 0 0 5px #000;
+	padding: 30px 50px;
+}
+.vH100
+{
+	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+	height: 100vh;
+}
+.vH80
+{
+	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+	height: 80vh;
+}
+.vH60
+{
+	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+	height: 60vh;
+}
+.vH40
+{
+	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+	height: 40vh;
+}
+.vH20
+{
+	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+	height: 20vh;
 }
 .parallax::after
 {
@@ -591,4 +631,25 @@ FORM
 .bg2::after
 {
 	background: url('https://placekitten.com/g/800/600') center top / 100px scroll;
+}
+/*Color Scheme */
+.sky
+{
+	background: #8BBDFC;
+}
+.ocean
+{
+	background: #11325C;
+}
+.sand
+{
+	background: #FDE1A9;
+}
+.tree
+{
+	background: #21452A;
+}
+.woods
+{
+	background: #32290D;
 }
