@@ -1,5 +1,5 @@
-<?php include '../view/header.php'; ?>
-<?php include '../view/sidebar.php'; ?>
+<?php include 'view/header.php'; ?>
+<?php include 'view/sidebar.php'; ?>
 <?php $blogLink="http://www.danieljohndunevant.io/blog/?action=view_blog-".$action[1];
       $blogLinkSharer="http%3A%2F%2Fwww.danieljohndunevant.io%2Fblog%2F%3Faction%3Dview_blog-".$action[1]."&amp;src=sdkpreparse"; ?>
 <main>
@@ -20,4 +20,4 @@
 	</div>
 	
 </main>
-<?php include '../view/footer.php'; ?>
+<?php include 'view/footer.php'; ?>

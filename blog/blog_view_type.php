@@ -1,5 +1,5 @@
-<?php include '../view/header.php'; ?>
-<?php include '../view/sidebar.php'; ?>
+<?php include 'view/header.php'; ?>
+<?php include 'view/sidebar.php'; ?>
 <main>
 <div class ="rectangle">
 <h1><?php print($action[1])?></h1>
@@ -36,4 +36,4 @@
 	<?php endif;?>
 </div>
 </main>
-<?php include '../view/footer.php'; ?>
+<?php include 'view/footer.php'; ?>

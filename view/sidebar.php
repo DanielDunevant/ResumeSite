@@ -8,7 +8,7 @@
 		$blogs_url =  '/blog';
 		$logout_url = $account_url . '?action=logout';
 	?>
-	<h2><a class='headerLinks' href="<?php echo ''; ?>">Home</a></h2>
+	<h2><a class='headerLinks' href="<?php echo '/'; ?>">Home</a></h2>
 	<h2><a class='headerLinks' href="<?php echo $about_url ;?>">About</a></h2>
 	<h2><a class='headerLinks' href="<?php echo $plans_url;?>">Plans</a></h2>
 	<h2><a class='headerLinks' href="<?php echo $parralax_url;?>">Parralax</a></h2>
