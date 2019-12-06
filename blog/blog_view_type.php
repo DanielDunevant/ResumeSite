@@ -1,14 +1,13 @@
 <?php include 'view/header.php'; ?>
 <?php include 'view/sidebar.php'; ?>
-<main>
-<div class ="rectangle">
-<h1><?php print($action[1])?></h1>
-    <h2><?php print($action[1]);?></h2>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<h1><?php print($action[1]); ?></h1>
+    <h2><?php print($action[1]); ?></h2>
     <?php 
 	$blogs = get_Blogs_Of_Type($action[1]);
  	if (count($blogs) > 0) : ?>
 	<ul>
-		<div class = "rectangle">
 <?php
 	foreach($blogs as $blog) :
                 $blog_id = $blog['BlogID'];
@@ -29,11 +28,10 @@
 		    	<?php echo $blog_type."\n"; ?>
                 </li>
             <?php endforeach; ?>
-		</div>
         </ul>
    	<?php else: ?>
 	<p>Looks like you need to  write some blogs!</p>
 	<?php endif;?>
 </div>
-</main>
+<div class="col-md-2"></div>
 <?php include 'view/footer.php'; ?>

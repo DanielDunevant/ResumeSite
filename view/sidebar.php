@@ -1,4 +1,43 @@
-<aside id="menu" class="center">
+<?php
+$uri = filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING);
+$StringBlog = "blog";
+$onBlogPage=0;
+if(strpos($_SERVER['PHP_SELF'],$StringBlog)!== false){
+	$onBlogPage=1;
+}else{
+
+     //   include('model/blog_db_2.php');
+        //$recent_blogs_new=get_recent_blogs_new();
+}
+if($onBlogPage==0):
+ ?>
+<div id="recentSidebar" class="RecentSidebar fixedLinks">
+	<h3>Recent Blogs</h3>
+	  <div class="tiles">
+                        <b><? print $recent_blogs_new[0]['name']; ?></b>
+                        <p><? print $recent_blogs_new[0]['dateWritten']; ?></p>
+                        <a href="/blog/?action=view_blog-<? print $recent_blogs_new[0]['BlogID']; ?>">
+                            <?php echo '<img class="blogPicker" src="data:image/jpeg;base64, ' .base64_encode(stripslashes($recent_blogs_new[0]['image'])). '">'; ?>
+											  </a>
+                </div>
+                <div class="tiles">
+                        <b><? print $recent_blogs_new[1]['name']; ?></b>
+                        <p><? print $recent_blogs_new[1]['dateWritten']; ?></p>
+                        <a href="/blog/?action=view_blog-<? print $recent_blogs_new[1]['BlogID']; ?>">
+                            <?php echo '<img class="blogPicker" src="data:image/jpeg;base64, ' .base64_encode(stripslashes($recent_blogs_new[1]['image'])). '">'; ?>
+                        </a>
+                </div>
+                <div class="tiles">
+                        <b><? print $recent_blogs_new[2]['name']; ?></b>
+                        <p><? print $recent_blogs_new[2]['dateWritten']; ?></p>
+                        <a href="/blog/?action=view_blog-<? print $recent_blogs_new[2]['BlogID']; ?>">
+                        <?php echo '<img class="blogPicker" src="data:image/jpeg;base64, ' .base64_encode(stripslashes($recent_blogs_new[2]['image'])). '">'; ?>
+                        </a>
+                </div>
+
+</div>
+<?php endif; ?>
+<aside id="menu" style = "display:none" class="center sectShadow">
 	<?php
 		$account_url = '/account';
 		$about_url = '/?action=about';
@@ -9,36 +48,34 @@
 		$logout_url = $account_url . '?action=logout';
 	?>
 	<h2><a class='headerLinks' href="<?php echo '/'; ?>">Home</a></h2>
-	<h2><a class='headerLinks' href="<?php echo $about_url ;?>">About</a></h2>
+<!--	<h2><a class='headerLinks' href="<?php echo $about_url ;?>">About</a></h2> -->
 	<h2><a class='headerLinks' href="<?php echo $plans_url;?>">Plans</a></h2>
-	<h2><a class='headerLinks' href="<?php echo $parralax_url;?>">Parralax</a></h2>
 	<h2><a class='headerLinks' href="<?php echo $resumes_url ;?>">Resumes</a></h2>
 	<h2><a class='headerLinks' href="<?php echo $blogs_url ;?>">Blogs</a></h2>
 	<ul>
-	<!-- display links for all categories--> 
+	<!-- display links for all categories-->
 		<?php
-		
+
 	/*print"<li><a href=\"<?php echo $account_url; ?>\">Login/Register</a></li>";*/
 
-		require_once('model/database.php');
 		require_once('model/blog_db.php');
 		$blogTypes = get_BlogTypes();
 		//I think  that 2 mysql functions will simplify
 		// the issues I'm facing. The arrays will be
 		// combined after being called into this scope.
 		// In so doing they'll be available for the/////
-		// foreach statement that follows. Here's a link 
-		// to a similar issue https://stackoverflow.com/questions/4480803/two-arrays-in-foreach-loop 
+		// foreach statement that follows. Here's a link
+		// to a similar issue https://stackoverflow.com/questions/4480803/two-arrays-in-foreach-loop
 		foreach($blogTypes as $blog):
 			$blogType = $blog['blogType'];
 			//$url = $app_path . 'blog/?action=view_blog_type';
-			$url = 'blog/?action=view_blog_type-'.$blogType;
+			$url = '/blog/?action=view_blog_type-'.$blogType;
 		       	print("<a class='headerLinks' href = '$url'>$blogType</a>");
 		?>
 		<?php
 			endforeach; ?>
 		<?php
-		if (isset($_SESSION['user'])){ 
+		if (isset($_SESSION['user'])){
 			print"<h2 class ='headerLinks'><a href=\"$account_url\">My Account ( ".(isset($_SESSION['rank'])?"Admin":"Regular")." user )</a></h2>";
 			print"<h2 class = 'headerLinks'><a href=\"$logout_url\">Logout</a></h2>";
 		}else{
@@ -47,34 +84,20 @@
 	 ?>
 </aside>
 
-<i onclick="hideMe()" class="menuClickStatic menuClick fas fa-bars" id="menuClick1"></i>
-<i onclick="hideMe()" class="menuClickStatic fas fa-bars" id="menuClick2"></i>
+<i class="menuClickStatic menuClick fas fa-bars" id="menuClick1"></i>
+<i class="menuClickStatic fas fa-bars" id="menuClick2"></i>
+<a id = "facebook_1" style="display:none" href = "https://www.facebook.com/daniel.dunevan"><i  class="fixedLinks fab fa-facebook-square"></i></a>
+<a id ="rss_1" style ="display:none"><i  class="fixedLinks fas fa-rss-square"></i></a>
+<a id = "facebook_2" href = "https://www.facebook.com/daniel.dunevan" ><i class="fixedLinks fab fa-facebook-square"></i></a>
+<a id ="rss_2" ><i  class="fixedLinks fas fa-rss-square"></i></a>
+	<div class="wrapper">
+	<div class="section sectShadow  sky">
+		<!--<p class="BannerMessage">Site Under Construction</p>-->
+		<header>
+    			<h1 id ="title">Daniel John Dunevant Dot Io</h1>
+		</header>
+	</div>
 
-<script>
-function hideMe() {
-  var x = document.getElementById("menu");
-  var y = document.getElementById("menuClick1");
-  var z = document.getElementById("menuClick2");
-  if (y.style.display === "none") {
-   // x.setAttribute("id","menu");
-    x.classList.remove("menuDown");	
-    x.classList.add("menuUp");
-   //x.style.display = "none";
-    y.style.display = "block";
-    z.style.display = "none";
-  } else {
-   // x.setAttribute("id","menuAni");
-    x.classList.remove("menuUp");	
-    x.classList.add("menuDown");
-    x.style.display = "block";
-    y.style.display = "none";
-    z.style.display = "block";
-  }
-console.log("Element:Menu");
-console.log(x.style.display);
-console.log("Element:Click1");
-console.log(y.style.display);
-console.log("Element:Click2");
-console.log(z.style.display);
-}
-</script>
+<main>
+<script src="/js/sidebar.js">
+	</script>

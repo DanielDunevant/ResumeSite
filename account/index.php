@@ -1,5 +1,4 @@
 <?php
-
 require_once('../util/main.php');
 //require_once('util/secure_connphp');
 require_once('../model/user_db.php');
@@ -39,7 +38,6 @@ switch ($action) {
         // Clear user data
         $email = '';
         $user_name = '';
-        
 	include 'account_register.php';
         break;
     case 'register':
@@ -124,68 +122,79 @@ switch ($action) {
 	include 'account/account_view.php';
         break;
     case 'view_account':
-        $user_name = $_SESSION['user']['username'];
-        $email = $_SESSION['user']['email'];        
-	include 'account_view.php';
-        break;
+		if($_SESSION['user'] && $_SESSION['rank']){
+        		$user_name = $_SESSION['user']['username'];
+        		$email = $_SESSION['user']['email'];        
+			include 'account_view.php';
+		}else{
+			include 'errors/error_signin.php';
+		}
+        	break;
     case 'view_account_edit':
-        $first_name = $_SESSION['user']['firstName'];
-        $last_name = $_SESSION['user']['lastName'];
-        $password_message = '';        
-	include 'account_edit.php';
+		if($_SESSION['user'] && $_SESSION['rank']){
+        		$first_name = $_SESSION['user']['firstName'];
+        		$last_name = $_SESSION['user']['lastName'];
+        		$password_message = '';        
+			include 'account_edit.php';
+		}else{
+			include 'errors/error_signin.php';
+		}
         break;
     case 'update_account':
-        // Get the user data
-        $user_id = $_SESSION['user']['customerID'];
-        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-        $first_name = filter_input(INPUT_POST, 'first_name');
-        $last_name = filter_input(INPUT_POST, 'last_name');
-        $password_1 = filter_input(INPUT_POST, 'password_1');
-        $password_2 = filter_input(INPUT_POST, 'password_2');
-        $password_message = '';
-
-        // Get the old data for the user
-        $old_user = get_customer($user_id);
-
-        // Validate user data
-        $validate->email('email', $email);
-        $validate->text('password_1', $password_1, false, 6, 30);
-        $validate->text('password_2', $password_2, false, 6, 30);        
-        $validate->text('first_name', $first_name);
-        $validate->text('last_name', $last_name);        
-        
-        // Check email change and display message if necessary
-        if ($email != $old_user['emailAddress']) {
-            display_error('You can\'t change the email address for an account.');
-        }
-
-        // If validation errors, redisplay Login page and exit controller
-        if ($fields->hasErrors()) {
-            include 'account/account_edit.php';
-            break;
-        }
-        
-        // Only validate the passwords if they are NOT empty
-        if (!empty($password_1) && !empty($password_2)) {            
-            if ($password_1 !== $password_2) {
-                $password_message = 'Passwords do not match.';
-                include 'account/account_edit.php';
-                break;
-            }
-        }
-
-        // Update the user data
-        update_user($user_id, $email, $first_name, $last_name,
-            $password_1, $password_2);
-
-        // Set the new user data in the session
-        $_SESSION['user'] = get_user($user_id);
-        $_SESSION['rank'] = get_rank($user_id);
-
-	redirect('..');
-        break;
-    case 'logout':
+		if($_SESSION['user'] && $_SESSION['rank']){
+        	// Get the user data
+        	$user_id = $_SESSION['user']['customerID'];
+        	$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        	$first_name = filter_input(INPUT_POST, 'first_name');
+        	$last_name = filter_input(INPUT_POST, 'last_name');
+        	$password_1 = filter_input(INPUT_POST, 'password_1');
+        	$password_2 = filter_input(INPUT_POST, 'password_2');
+        	$password_message = '';
 	
+	        // Get the old data for the user
+	        $old_user = get_customer($user_id);
+		
+        	// Validate user data
+        	$validate->email('email', $email);
+        	$validate->text('password_1', $password_1, false, 6, 30);
+        	$validate->text('password_2', $password_2, false, 6, 30);        
+        	$validate->text('first_name', $first_name);
+        	$validate->text('last_name', $last_name);        
+        	
+        	// Check email change and display message if necessary
+        	if ($email != $old_user['emailAddress']) {
+        	    display_error('You can\'t change the email address for an account.');
+        	}
+	
+	        // If validation errors, redisplay Login page and exit controller
+        	if ($fields->hasErrors()) {
+        	    include 'account/account_edit.php';
+           	 break;
+        	}	
+        
+        	// Only validate the passwords if they are NOT empty
+        	if (!empty($password_1) && !empty($password_2)) {            
+            	if ($password_1 !== $password_2) {
+                	$password_message = 'Passwords do not match.';
+                	include 'account/account_edit.php';
+                	break;
+            		}
+        	}
+
+        	// Update the user data
+        	update_user($user_id, $email, $first_name, $last_name,
+           	 $password_1, $password_2);
+	
+	        // Set the new user data in the session
+	        $_SESSION['user'] = get_user($user_id);
+       		$_SESSION['rank'] = get_rank($user_id);
+		
+		redirect('..');
+		}else{
+			include 'errors/error_signin.php';
+		}
+        	break;
+    case 'logout':
         unset($_SESSION['user']);
         unset($_SESSION['rank']);
 	redirect('..');

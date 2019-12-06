@@ -1,36 +1,46 @@
-BODY
-{
-	font-family: Arial, Helvetica, sans-serif;
-	width: 100% !important;
-	margin: auto !important;
-	background-color: white;
-	border: 1px solid black;
-	word-wrap: break-word;
-	overflow-x: hidden;
-	display: ;
-}
-HEADER
-{
-	border-bottom: 2px solid black;
-	position: relative;
-	padding: 0.5em 0;
-}
 .BannerMessage
 {
 	background: #C7DD3E;
+	clear: both;
 	text-align: center;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	display: block;
+	position: absolute !important;
 	font-size: large;
 	font-style: oblique;
+}
+BODY
+{
+	/* The height needs to be set to a fixed value for the effect to work.
+ * 	 * 	 * 	 * 	 * 	 *    * 100vh is the full height of the viewport. */
+	height: 100vh;
+	/* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+	overflow-x: hidden;
+	/* Enable scrolling on the page. */
+	overflow-y: auto;
+	/* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+	perspective: 2px;
+}
+HEADER
+{
+	position: relative;
+	padding: 0.5em 0;
 }
 HEADER H1
 {
 	color: black;
 }
+#title
+{
+	position: relative;
+	text-align: center;
+}
 MAIN
 {
-	margin-bottom: 1em;
-	float: left;
-	width: auto;
+	width: 100%;
+	margin-bottom:25px;
 }
 ASIDE
 {
@@ -40,7 +50,7 @@ ASIDE
 	padding-bottom: 10px;
 	padding-left: 100px;
 	width: 100%;
-	height: auto;
+	height: auto !important;
 	left: 0px;
 	opacity: 0;
 	top: 0px !important;
@@ -66,16 +76,11 @@ SECTION
 		margin: 0px 10px;
 		text-align: center;
 	}
-	.header-right
-	{
-		float: none;
-	}
 }
 FOOTER
 {
 	clear: both;
 	width: 100%;
-	border-top: 2px solid black;
 }
 FOOTER P
 {
@@ -85,7 +90,7 @@ FOOTER P
 H1
 {
 	font-size: 150%;
-	margin: 0.5em 0 0.25em;
+	text-align: left;
 }
 H2
 {
@@ -99,6 +104,7 @@ H1, H2
 P
 {
 	margin: 0.5em 0;
+	padding: 0;
 }
 UL
 {
@@ -127,6 +133,10 @@ LABEL
 	padding-bottom: 0.5em;
 	text-align: right;
 	float: left;
+	clear: none;
+	display: inline-block;
+	position: relative;
+	width: 20%;
 }
 TEXTAREA
 {
@@ -153,6 +163,26 @@ IMG
 }
 FORM
 {
+}
+INPUT
+{
+	padding-bottom: 1px;
+	display: inline-block;
+	position: relative;
+	width: 60% !important;
+	clear: right;
+}
+SELECT
+{
+	padding-bottom: 1px;
+	display: inline-block;
+	position: relative;
+	width: 60% !important;
+	clear: right;
+}
+.alignInputs
+{
+	margin: 20px;
 }
 /*Animations*/
 /* Safari 4.0 - 8.0 */
@@ -204,52 +234,52 @@ FORM
 }
 /*MENU HIDE AND DROPDOWN*/
 /* Safari 4.0 - 8.0 */
-/*@-webkit-keyframes showMenu
- * {
- * 	0%
- * 		{
- * 				top: 380px;
- * 					}
- * 						100%
- * 							{
- * 									top: 25px;
- * 										}
- * 										}*/
 /* Standard syntax */
-/*@keyframes showMenu
- * {
- * 	0%
- * 		{
- * 				top: 380px;
- * 					}
- * 						100%
- * 							{
- * 									top: 25px;
- * 										}
- * 										}*/
-/*@-webkit-keyframes hideMenu
- * {
- * 	0%
- * 		{
- * 				top: 25px;
- * 					}
- * 						100%
- * 							{
- * 									top: 380px;
- * 										}
- * 										}*/
+@-webkit-keyframes menuDownAni
+{
+	0%
+	{
+		top: -380px;
+	}
+	100%
+	{
+		top: 0px;
+	}
+}
+@keyframes MenuDownAni
+{
+	0%
+	{
+		top: -380px;
+	}
+	100%
+	{
+		top: 0px;
+	}
+}
+@-webkit-keyframes menuUpAni
+{
+	0%
+	{
+		top: 0px;
+	}
+	100%
+	{
+		top: -380px;
+	}
+}
 /* Standard syntax */
-/*@keyframes hideMenu
- * {
- * 	0%
- * 		{
- * 				top: 25px;
- * 					}
- * 						100%
- * 							{
- * 									top: 380px;
- * 										}
- * 										}*/
+@keyframes menuUpAni
+{
+	0%
+	{
+		top: 0px;
+	}
+	100%
+	{
+		top: -430px;
+	}
+}
 /* the styles for the div tags that divide the page into sections */
 #left_column
 {
@@ -273,6 +303,37 @@ FORM
 	padding-left: 2em;
 	margin-top: 0.25em;
 }
+/*Shapey Divs*/
+.rectangle{
+    margin:0px 4.5%;
+    background-color: #bbb;
+    border-radius: 1vw;
+    padding:5px;
+    display: inline-block;
+     box-shadow: 10px 10px 5px #aaaaaa;
+}
+.rectangle:hover{
+     margin-top:-2px !important;
+     box-shadow: 20px 20px 10px #999;
+
+}
+
+@media screen and (max-width:800px){
+.rectangle{
+
+    width: auto !important;
+    margin-bottom: 20px;
+}
+    .rectangle p{
+        font-size: 5vw !important;
+    }
+}
+@media screen and (min-width:800px){
+.rectangle{
+    width:36.6vw !important;
+}
+}
+
 /*Positioning Styles*/
 .clearfix
 {
@@ -294,6 +355,8 @@ FORM
 .center
 {
 	text-align: center;
+	top: 40%;
+	position: absolute;
 }
 /* styles for the classes */
 .right
@@ -322,6 +385,9 @@ FORM
 .error
 {
 	color: red;
+}
+.inviso-link:hover{
+    text-decoration: none;
 }
 /*RSS Styles*/
 .recentBlogsBox
@@ -361,28 +427,86 @@ FORM
 	padding: 10px;
 	object-fit: cover;
 }
-/* styles for the ids */
-#menu
+/*Add Blog*/
+.components
 {
-	display: none;
-	text-align: center;
-	align-content: center;
+	position: relative;
+	display: inline-block;
+	float: left;
+	width: 20%;
 }
+.components IMG
+{
+	height: 20px !important;
+}
+/*General Blog Stuff*/
+.blogPost{
+    width:90%;
+    margin-left:5%
+}
+.blogTxt
+{
+	text-align: left;
+}
+@media screen and (min-width: 990px)
+{
+.blogTxt , p{
+    font-size: 1.5vw !important;
+}
+
+   /* .rectangle{
+        width:50%;
+    }*/
+}
+h2{
+font-size:3vw !important;
+font-weight:bold !important;
+}
+@media screen and (max-width: 990px)
+{
+.blogTxt , p{
+    font-size: 5vw !important;
+}
+    .blogImg{
+        width:100%!important;
+    }
+    .rectangle p{
+        font-size: 2vw !important;
+    }
+  h2{
+    font-size: 6vw  !important;
+    font-weight:bold !important;
+}
+}
+.blogImg{
+        clear:none;
+        position: relative !important;
+        top:-10px;
+        margin:0px 10px;
+     }
+.fb-share-button{
+    left:75%;
+    bottom:5px;
+}
+/* styles for the ids */
+
 .menuClick
 {
 	display: none;
 	text-align: left;
+	top: 25px;
 }
 .menuUp
 {
 	-webkit-animation: menuUpAni .6s linear forwards;
+	display: block;
 	/* Safari 4.0 - 8.0 */
 	/* Safari 4.0 - 8.0 */
 	animation: menuUpAni 0.6s linear forwards;
 }
 .menuDown
 {
-	-webkit-animation-name: example;
+	-webkit-animation-name: menuDownAni;
 	display: block;
 	/* Safari 4.0 - 8.0 */
 	-webkit-animation-duration: 1s;
@@ -395,10 +519,6 @@ FORM
 	position: fixed;
 	right: 25px;
 	font-size: 25px;
-}
-.menuClick
-{
-	top: 25px;
 }
 #menuClick2
 {
@@ -417,152 +537,65 @@ FORM
 	animation-duration: 0.7s;
 	z-index: 100;
 }
-#category_table FORM
-{
-	margin: 0;
-}
-#category_table TD
-{
-	margin: 0;
-	padding: 0.15em 0.5em 0 0;
-}
-#add_category_form
-{
-	margin: 0;
-}
-#add_category_form INPUT
-{
-	margin-right: 0.5em;
-}
-#add_admin_user_form LABEL
-{
-	width: 8.5em;
-}
-#edit_and_delete_buttons
-{
-	margin-bottom: 0.5em;
-}
-#edit_and_delete_buttons FORM
-{
-	display: inline;
-}
-#image_manager INPUT
-{
-	margin: 0.25em;
-}
-.product_image_column
-{
-	width: 8em;
-	text-align: center;
-}
-#add_to_cart_form
-{
-	margin: 0.25em;
-}
-#add_to_cart_form INPUT
-{
-	float: none;
-}
-#cart
-{
-	margin: 0;
-	padding: 1em 0.25em;
-	border-collapse: collapse;
-	width: 100%;
-}
-#cart_header TH
-{
-	border-bottom: 2px solid black;
-}
-#cart_footer TD
-{
-	border-top: 2px solid black;
-	font-weight: bold;
-}
-#login_form
-{
-	margin-top: 0.5em;
-}
-#login_form LABEL
-{
-	text-align: left;
-	width: 5em;
-	padding-right: 1em;
-}
-#login_form INPUT[text]
-{
-	background-color: red;
-}
-#register_form LABEL
-{
-	width: 10em;
-}
-#edit_account_form LABEL
-{
-	width: 9em;
-}
-#payment_form LABEL
-{
-	width: 8em;
-	padding-right: 1em;
-}
-#payment_form INPUT[text]
-{
-	width: 5em;
-	margin: 0;
-	padding-right: 1em;
-}
-#add_category LABEL
-{
-	text-align: left;
-	width: 3em;
-}
-#add_category INPUT
-{
-	margin-right: 0.25em;
-}
-#formatting_directions H2
-{
-	padding-top: 1em;
-}
-#formatting_directions UL
-{
-	list-style-type: disc;
-	margin-top: 0;
-	padding-left: 1em;
-	padding-bottom: 1em;
-}
+
 #copyright
 {
 	margin: 1em 0;
 }
-/*PARRALAX*/
+/*PARALLAX*/
 .wrapper
 {
 	/* The height needs to be set to a fixed value for the effect to work.
- * 	 * 	 *    * 100vh is the full height of the viewport. */
+ * 	 * 	 * 	 * 	 * 	 *    * 100vh is the full height of the viewport. */
 	height: 100vh;
 	/* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
 	overflow-x: hidden;
 	/* Enable scrolling on the page. */
 	overflow-y: auto;
 	/* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
-	perspective: 2px;
+	perspective: 2.5px;
 }
 .section
 {
 	/* Needed for children to be absolutely positioned relative to the parent. */
 	position: relative;
 	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
-	height: 100vh;
+	height: auto;
 	width: 100%;
 	/* For text formatting. */
-	display: flex;
+	display: block;
 	clear: both;
+	text-align: center;
 	align-items: center;
 	justify-content: center;
 	color: #1F4DF0;
 	text-shadow: 0 0 5px #000;
+	padding: 30px 50px;
+}
+.vH100
+{
+	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+	height: 100vh;
+}
+.vH80
+{
+	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+	height: 80vh;
+}
+.vH60
+{
+	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+	height: 60vh;
+}
+.vH40
+{
+/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+height: 40vh;
+}
+.vH20
+{
+	/* The height of the container. Must be set, but it doesn't really matter what the value is. */
+	height: 20vh;
 }
 .parallax::after
 {
@@ -574,13 +607,16 @@ FORM
 	bottom: 0;
 	left: 0;
 	/* Move the pseudo-element back away from the camera,
- * 	 * 	 *    * then scale it back up to fill the viewport.
- * 	 	 * 	 	 *       * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+ * 	 * 	 * 	 * 	 * 	 *    * then scale it back up to fill the viewport.
+ * 	 	 * 	 	 * 	 	 * 	 	 * 	 	 *       * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
 	transform: translateZ(-1px) scale(1.5);
 	/* Force the background image to fill the whole element. */
 	background-size: 100%;
 	/* Keep the image from overlapping sibling elements. */
 	z-index: -1;
+}
+.parallax{
+	margin-left:-5px;
 }
 /* The styling for the static div. */
 .static
@@ -590,10 +626,115 @@ FORM
 /* Sets the actual background images to adorable kitties. This part is crucial. */
 .bg1::after
 {
-	background: url('https://placekitten.com/g/900/700') bottom right / 100px scroll content-box padding-box;
+	/*height:75.5vh;*/
+	background: url('https://images.pexels.com/photos/258149/pexels-photo-258149.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') bottom right / cover scroll content-box padding-box;
 }
 .bg2::after
 {
-	background: url('https://placekitten.com/g/800/600') center top / 100px scroll;
+	/*height:64.5vh;*/
+	background: url('https://images.pexels.com/photos/258149/pexels-photo-258149.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') center top / cover scroll;
+}
+.flip{
+	-webkit-transform: scaleY(-1);
+	 scaleY(-1);
+}
+/*Color Scheme */
+.sky
+{
+ background:  linear-gradient(45deg,rgb(255,255,255),transparent),
+                repeating-linear-gradient(45deg, rgb(255,255,255) 0%, rgb(255,255,255) 5%, transparent 5%
+                                    ,transparent 10%,rgb(255,255,255) 10%,rgb(255,255,255) 11%,transparent 11%,
+                                    transparent 12%),rgb(146,181,234)
+                repeating-linear-gradient(-45deg, rgba(255,255,255,0.5) 0%,rgba(255,255,255,.5) 5%,transparent 5%,
+                    transparent 10%);
+}
+.ocean{
+     background:  linear-gradient(-45deg,rgb(0,0,0),transparent),
+                repeating-linear-gradient(95deg, rgba(25,55,155,.5) 0%, rgba(89,133,243,.5) 5%, transparent 5%
+                                    ,transparent 10%,rgb(37,47,245) 10%,rgb(123,174,241) 11%,transparent 11%,
+                                    transparent 12%),rgb(27,82,234)
+                repeating-linear-gradient(-95deg, rgba(97,139,245,0.5) 0%,rgba(45,93,243,0.5) 5%,transparent 5%,
+                    transparent 10%) !important;
+     color:#fff;
+}
+.sand
+{
+	background: #FDE1A9;
+}
+.tree
+{
+	background: #21452A;
+}
+.woods
+{
+	background: #32290D;
+}
+.ContentBox{
+    width:30%;
+    background-color:#fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    padding:20px;
+    border-radius:10px
+
+}
+input {
+     border:2px;
+    border-style: solid;
+    border-radius:5px;
+}
+.rounded{
+    border-radius:100vw;
+}
+.sectShadow {
+     box-shadow: 0px 10px 20px black inset;
+}
+.sectShadowUpper {
+     box-shadow: 0px 0px 20px black inset;
 }
 
+/*FIXED CONTENT*/
+
+.RecentSidebar{
+    position:fixed;
+    z-index: 123;
+    width:200px;
+    clear:right;
+    right:27px;
+    bottom:-310px !important;
+    height:73% !important;
+    margin:5px;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    margin: 0;
+    position: absolute;               /* 2 */                        /* 3 */
+    transform: translate(0, -50%);
+    overflow-y:scroll;
+}
+.RecentSidebar p , .RecentSidebar b{
+    font-size: 12px !important;
+}
+.fixedLinks{
+    position:fixed;
+    bottom:9px;
+    z-index: 1000;
+    font-size:30px;
+}
+#rss_1 .fa-rss-square {
+    right:70px;
+
+}
+#facebook_1 .fa-facebook-square {
+      right:30px
+}
+#rss_2 .fa-rss-square {
+    right:280px;
+
+}
+#facebook_2 .fa-facebook-square {
+    right:240px;
+}

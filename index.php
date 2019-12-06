@@ -1,6 +1,5 @@
 <?php
 require_once('util/main.php');
-require_once('model/blog_db.php');
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
