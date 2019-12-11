@@ -18,7 +18,7 @@
         		<input id="password" type="password" name="password" size="30"><br>
 						<div id="errorPass"></div>
 						<input type="hidden" name="action" value="login">
-       			<input type="submit" value="Login">
+       			<input type="submit" class="button" value="Login">
         		<?php if (!empty($password_message)) : ?>
         		<span class="error"><?php echo htmlspecialchars($password_message); ?></span>
         		<?php endif; ?>
@@ -26,7 +26,7 @@
     		<h1>Register</h1>
     		<form action="." method="post">
     		    <input type="hidden" name="action" value="view_register">
-    		    <input type="submit" value="Register">
+    		    <input type="submit" class="button" value="Register">
     		</form>
 	</div>
 </section>

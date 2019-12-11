@@ -38,7 +38,7 @@ if (!isset($password_message)) { $password_message = ''; }
                size="30">
         <?php echo $fields->getField('secret_pass')->getHTML(); ?><br>
 
-        <input type="submit" value="Register">
+        <input type="submit" class="button" value="Register">
     </form>
   </div>
 </section>

@@ -6,17 +6,17 @@
     <form action="." method="post">
         <input type="hidden" name="action" value="update_account">
         <label>E-Mail:</label>
-        <input type="text" name="email" 
+        <input type="text" name="email"
                value="<?php echo htmlspecialchars($email); ?>">
         <?php echo $fields->getField('email')->getHTML(); ?><br>
-        
+
         <label>First Name:</label>
-        <input type="text" name="first_name" 
+        <input type="text" name="first_name"
                value="<?php echo htmlspecialchars($first_name); ?>">
         <?php echo $fields->getField('first_name')->getHTML(); ?><br>
-        
+
         <label>Last Name:</label>
-        <input type="text" name="last_name" 
+        <input type="text" name="last_name"
                value="<?php echo htmlspecialchars($last_name); ?>">
         <?php echo $fields->getField('last_name')->getHTML(); ?><br>
 
@@ -34,7 +34,7 @@
     </form>
     <form action="." method="post">
         <label>&nbsp;</label>
-        <input type="submit" value="Cancel">
+        <input class="button" type="submit" value="Cancel">
     </form>
     </div>
 </main>

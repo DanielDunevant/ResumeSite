@@ -7,11 +7,12 @@
 // If longer than x length then ellipses
 $most_recent= $recent_blogs[0];
 ?>
-	<div class = "row ">
+<div class="section sectShadowUpper angleDiv_right sky">
+	<div class = "row " style="margin-top:36px">
 		<div class="col-md-2 col-sm-2">&nbsp;</div>
 		<div class = " col-md-6 col-sm-6">
     			<!--<h1><?php print($recent_blogs[0]['blogType']);?></h1>-->
-			<h2><?php print($recent_blogs[0]['name']);?></h2>
+			<h1><?php print($recent_blogs[0]['name']);?></h1>
 			<h3><?php print($recent_blogs[0]['dateWritten']);?></h3>
 			<a href="/blog/?action=view_blog-<? print $recent_blogs[0]['BlogID']; ?>">
 				<?php echo '<img class = "displayBlogImg" src="data:image/jpeg;base64, ' .base64_encode(stripslashes($recent_blogs[0]['image'])). '">'; ?>
@@ -42,11 +43,32 @@ $most_recent= $recent_blogs[0];
 		</div>
 		<div class="col-md-2 col-sm-2">&nbsp;</div>
 	</div>
+</div>
 	<?php
 	//Uncomment when Proper MySQL Statement is made
 	$counter=0;
+	$i=0;
+	$evenText="	<section class='section parallax bg1'>";
+	$oddText="<div class='section sectShadowUpper angleDiv_left sky'>";
+	$startText;
+	$endText;
 	foreach($blogs_3_of_each as $blog)
 	{
+		if($i==0  ){
+			$startText=$evenText;
+			$endText="";
+		}else if ( $i==1) {
+			$startText="";
+			$endText="";
+		}else if( $i==2){
+			$startText="";
+			$endText="</section>";
+		}
+		else{
+			$startText=$oddText;
+			$endText="</div>";
+		}
+		print $startText;
 		if($blog['name']!=null){
 			if($counter == 0){
 			print"<div class='row'><div class='col-md-2 col-sm-2'>&nbsp;</div><div class='col-md-8 col-sm-8'> <h2>".$blog['blogType']."</h2></div><div class='col-md-2 col-sm-2'>&nbsp;</div></div>";
@@ -62,6 +84,8 @@ $most_recent= $recent_blogs[0];
 
 			$counter++;
 			if($counter>=3){$counter=0; print"<div class='col-md-2 col-sm-2'>&nbsp;</div></div>";}else{ print"";}		}
+			print $endText;
+			$i++;
 	}
 
 	?>

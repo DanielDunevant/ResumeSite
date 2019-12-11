@@ -24,7 +24,7 @@ if(strpos($actual_link,'/blog/')== false){
         print '<meta property="og:description" content="'.$blog['mainText'].'" > ';
         print '<meta property="og:title" content="'.$blog['name'].'" >';
         print '<meta property="og:url" content="'.$actual_link.'" >';
- 	print '<meta property="og:image" content="data:image/png;base64, ' .base64_encode(stripslashes($blog['image'])). '" /> ';
+ 	      print '<meta property="og:image" content="data:image/png;base64, ' .base64_encode(stripslashes($blog['image'])). '" /> ';
 	}
 	$i++;
 	endforeach;
@@ -55,6 +55,9 @@ if(strpos($actual_link,'/blog/')== false){
 	      enable_page_level_ads: true
 	  });
 	 </script>
+
+<!--FONTS-->
+<link href="https://fonts.googleapis.com/css?family=Pacifico|Righteous&display=swap" rel="stylesheet">
 
 </head>
 
