@@ -55,8 +55,8 @@ function get_Blogs() {
 function get_Recent_Blogs_Of_Type($blogType) {
     global $db;
     $query = 'SELECT * FROM blogs
-	      ORDER BY dateWritten
-	      WHERE blogType = :Blog_Type
+	            ORDER BY dateWritten
+	            WHERE blogType = :Blog_Type
               ASC LIMIT 3';
     try {
         $statement = $db->prepare($query);

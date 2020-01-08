@@ -2,7 +2,7 @@
 
       DJD's login form
       Author: Daniel J Dunevant
-      Date: 6/30/16
+      Date: 12/6/19
 
       Filename: login.js
 

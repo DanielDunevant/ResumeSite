@@ -5,7 +5,7 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-2">
 			<!-- past class-->
-		<img  src="/images/picture2.png" />
+		<img  src="/images/picture2.jpg" />
 		</div>
 		<div class="col-md-6">
 		<h2>My Website </h2><br>

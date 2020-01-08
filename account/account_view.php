@@ -4,11 +4,16 @@
     <div class = "rectangle">
     	<h1>My Account</h1>
     	<p><?php echo $username . ' (' . $email . ')'; ?></p>
+      <?php
+        $books = '/account/?action=Book_Add';
+      ?>
+      <a href ="<?php echo $books ?>">Books</a>
     		<?php if(isset($_SESSION['rank'])) : ?>
 		<h2>Your Blogs</h2>
-	    <?php 
+	    <?php
 		$blogs=array();
 		$blogTypes = get_Blog_Types();
+
 		foreach($blogTypes as $blogType)
 		{
 			if($blogType!=NULL)
@@ -26,18 +31,15 @@
 			$blog_mainText = $blog['mainText'];
 			$blog_ImageFileName = $blog['imageFilename'];
 			$blog_type = $blog['blogType'];
-	                $blog_view_url = 'blog' .
-	                       '?action=view_blog-' . $blog_id;
-			$blog_edit_url = 'blog'.
-				'?action=view_edit_blog_1-' . $blog_id;
-			$blog_add_url = 'blog'.
-				'?action=add_blog';
-			$blog_delete_url = 'blog'.
-				'?action=delete_blog-'.$blog_id;
+	                $blog_view_url = 'blog' .'?action=view_blog-' . $blog_id;
+			$blog_edit_url = 'blog'.'?action=view_edit_blog_1-' . $blog_id;
+			$blog_add_url = 'blog'.'?action=add_blog';
+			$blog_delete_url = 'blog'.'?action=delete_blog-'.$blog_id;
+
        	         ?>
        	         <li>
 			    Blog #
-				<?php echo "<a href='/".$blog_view_url."'>" ?><?php echo $blog_id; ?> View Blog</a> 
+				<?php echo "<a href='/".$blog_view_url."'>" ?><?php echo $blog_id; ?> View Blog</a>
 				edited on
         	        	<?php echo $blog_written_date."\n"; ?>
         	            	<?php echo $blog_name."\n"; ?>

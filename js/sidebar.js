@@ -105,9 +105,7 @@ if(window.addEventListener){
 }
 function setupPage(){
   createEventListeners();
-  console.log("before TxtChgr");
   titleTextChanger();
-
 }
 function createEventListeners(){
   var menuClick_1 = document.getElementById("menuClick1");

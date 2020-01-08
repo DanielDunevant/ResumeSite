@@ -11,7 +11,7 @@ require_once('../model/validate.php');
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
-    if ($action == NULL) {        
+    if ($action == NULL) {
         $action = 'view_login';
         if (isset($_SESSION['user'])) {
             $action = 'view_account';
@@ -46,11 +46,11 @@ switch ($action) {
         $password_1 = filter_input(INPUT_POST, 'password_1');
         $password_2 = filter_input(INPUT_POST, 'password_2');
         $username = filter_input(INPUT_POST, 'username');
-        
-        // Validate user data       
+
+        // Validate user data
         $validate->email('email', $email);
         $validate->text('password_1', $password_1, true, 6, 30);
-        $validate->text('password_2', $password_2, true, 6, 30);        
+        $validate->text('password_2', $password_2, true, 6, 30);
         $validate->text('username', $username);
 
 	//Other Vars
@@ -87,29 +87,48 @@ switch ($action) {
 
         redirect('..');
         break;
+    case 'Book_Add':
+    	include 'account_books.php';
+      break;
+    case 'save_books':
+// SAVE BOOKS  CASE!!!
+      $tableDataArray = $_POST["tableData"];
+
+
+
+
+        print $tableDataArray;
+
+
+
+
+
+
+    	include 'account_books.php';
+      break;
     case 'view_login':
         // Clear login data
         $email = '';
         $password = '';
         $password_message = '';
-        
+
 	include 'account_login_register.php';
         break;
     case 'login':
-	
+
         $email = filter_input(INPUT_POST, 'email');
         $password = filter_input(INPUT_POST, 'password');
-        
+
         // Validate user data
         $validate->email('email', $email);
-        $validate->text('password', $password, true, 6, 30);        
+        $validate->text('password', $password, true, 6, 30);
 
         // If validation errors, redisplay Login page and exit controller
         if ($fields->hasErrors()) {
             include 'account/account_login_register.php';
             break;
         }
-        
+
         // Check email and password in database
         if (is_valid_user_login($email, $password)) {
             $_SESSION['user'] = get_user_by_email($email);
@@ -124,7 +143,7 @@ switch ($action) {
     case 'view_account':
 		if($_SESSION['user'] && $_SESSION['rank']){
         		$user_name = $_SESSION['user']['username'];
-        		$email = $_SESSION['user']['email'];        
+        		$email = $_SESSION['user']['email'];
 			include 'account_view.php';
 		}else{
 			include 'errors/error_signin.php';
@@ -134,7 +153,7 @@ switch ($action) {
 		if($_SESSION['user'] && $_SESSION['rank']){
         		$first_name = $_SESSION['user']['firstName'];
         		$last_name = $_SESSION['user']['lastName'];
-        		$password_message = '';        
+        		$password_message = '';
 			include 'account_edit.php';
 		}else{
 			include 'errors/error_signin.php';
@@ -150,30 +169,30 @@ switch ($action) {
         	$password_1 = filter_input(INPUT_POST, 'password_1');
         	$password_2 = filter_input(INPUT_POST, 'password_2');
         	$password_message = '';
-	
+
 	        // Get the old data for the user
 	        $old_user = get_customer($user_id);
-		
+
         	// Validate user data
         	$validate->email('email', $email);
         	$validate->text('password_1', $password_1, false, 6, 30);
-        	$validate->text('password_2', $password_2, false, 6, 30);        
+        	$validate->text('password_2', $password_2, false, 6, 30);
         	$validate->text('first_name', $first_name);
-        	$validate->text('last_name', $last_name);        
-        	
+        	$validate->text('last_name', $last_name);
+
         	// Check email change and display message if necessary
         	if ($email != $old_user['emailAddress']) {
         	    display_error('You can\'t change the email address for an account.');
         	}
-	
+
 	        // If validation errors, redisplay Login page and exit controller
         	if ($fields->hasErrors()) {
         	    include 'account/account_edit.php';
            	 break;
-        	}	
-        
+        	}
+
         	// Only validate the passwords if they are NOT empty
-        	if (!empty($password_1) && !empty($password_2)) {            
+        	if (!empty($password_1) && !empty($password_2)) {
             	if ($password_1 !== $password_2) {
                 	$password_message = 'Passwords do not match.';
                 	include 'account/account_edit.php';
@@ -184,11 +203,11 @@ switch ($action) {
         	// Update the user data
         	update_user($user_id, $email, $first_name, $last_name,
            	 $password_1, $password_2);
-	
+
 	        // Set the new user data in the session
 	        $_SESSION['user'] = get_user($user_id);
        		$_SESSION['rank'] = get_rank($user_id);
-		
+
 		redirect('..');
 		}else{
 			include 'errors/error_signin.php';
@@ -203,5 +222,5 @@ switch ($action) {
 	display_error("Unknown account action: " . $action);
         break;
 }
- 
+
 ?>
