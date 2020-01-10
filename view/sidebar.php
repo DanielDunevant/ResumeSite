@@ -6,8 +6,6 @@ if(strpos($_SERVER['PHP_SELF'],$StringBlog)!== false){
 	$onBlogPage=1;
 }else{
 
-     //   include('model/blog_db_2.php');
-        //$recent_blogs_new=get_recent_blogs_new();
 }
 if($onBlogPage==0):
  ?>
