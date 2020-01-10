@@ -88,16 +88,14 @@ switch ($action) {
         redirect('..');
         break;
     case 'Book_Add':
+      print "Book add case entered";
     	include 'account_books.php';
       break;
     case 'save_books':
-// SAVE BOOKS  CASE!!!
+      // SAVE BOOKS  CASE!!!
       $tableDataArray = $_POST["tableData"];
-
-
-
-
-        print $tableDataArray;
+      print "Save books case entered";
+      print $tableDataArray;
 
 
 
