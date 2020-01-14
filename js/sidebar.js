@@ -34,25 +34,26 @@ function hideMe(){
   var gitHub_2 = document.getElementById("gitHub_2");
   //Hide this X
   var sidebar = document.getElementById("recentSidebar");
-  if (sidebar.style.display === "none") {
+  if (sidebar.style.display === "block") {
    // x.setAttribute("id","menu");
-    sidebar.style.display = "block";
-    facebook_1.style.display = "none";
-    rss_1.style.display = "none";
-    gitHub_1.style.display = "none";
-    facebook_2.style.display = "block";
-    rss_2.style.display = "block";
-    gitHub_2.style.display = "block";
+   sidebar.style.display = "none";
+   facebook_1.style.display = "block";
+   rss_1.style.display = "block";
+   gitHub_1.style.display = "block";
+   facebook_2.style.display = "none";
+   rss_2.style.display = "none";
+   gitHub_2.style.display = "none";
   } else {
    // x.setAttribute("id","menuAni");
-    sidebar.style.display = "none";
-    facebook_1.style.display = "block";
-    rss_1.style.display = "block";
-    gitHub_1.style.display = "block";
-    facebook_2.style.display = "none";
-    rss_2.style.display = "none";
-    gitHub_2.style.display = "none";
+   sidebar.style.display = "block";
+   facebook_1.style.display = "none";
+   rss_1.style.display = "none";
+   gitHub_1.style.display = "none";
+   facebook_2.style.display = "block";
+   rss_2.style.display = "block";
+   gitHub_2.style.display = "block";
   }
+
 }
 
 function updateText(){
@@ -94,7 +95,6 @@ function cursorFlash(){
 function titleTextChanger(){
   titleTextInterval=setInterval(updateText,100);
   titleTextCursorInterval=setInterval(cursorFlash,1000);
-  console.log("after TxtChgr");
 
 }
 

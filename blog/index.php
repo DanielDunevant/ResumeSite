@@ -8,8 +8,6 @@ if(strpos($_SERVER['PHP_SELF'],$StringBlog)!== false){
  include('model/blog_db_2.php');
 }else{
 }
-
-//require_once('model/blog_db_2.php');
 //require_once('model/address_db.php');
 //require_once('model/order_db.php')ohsd;
 //require_once('model/product_db.php');
@@ -19,7 +17,7 @@ $action = filter_input(INPUT_GET, 'action');
 $action = explode("-",$action);
 if ($action[0] == NULL) {
     $action[0] = filter_input(INPUT_GET, 'action');
-    if ($action[0] == NULL) {        
+    if ($action[0] == NULL) {
         $action[0] = 'rss_blog';
     }
 }
@@ -52,14 +50,14 @@ switch ($action[0]) {
 		}else{
 			include 'errors/error_signin.php';
 		}
-	   	break;	
+	   	break;
    	case 'view_add_blog_2':
 		if($_SESSION['user'] && $_SESSION['rank']){
             		include 'blog/blog_add_2.php';
 		}else{
 			include 'errors/error_signin.php';
 		}
-	    	break;	
+	    	break;
     	case 'add_blog':
 		global $blog;
 			$blog_id = add_Blog($_SESSION['name'], $_SESSION['description'], $_SESSION['image'], $_SESSION['imageFilename'], $_SESSION['blogType']);
@@ -84,12 +82,12 @@ switch ($action[0]) {
     	case 'view_blog_type':
         	unset($_SESSION['user']);
 		include('blog_view_type.php');
-		//To get here we simply set the action for the blog to Philosophy. 
-		//From there it will call the philosophy.php. That will just call a 
-		//list of the  blogs that are in that category. The user will click 
-		//on one of those items listed. In doing so they set the action to view_blog 
-		//and send the specific blog ID of the  link with it. At that  point 
-		//the get_BLog Function can be called in the model in blog_db.php. 
+		//To get here we simply set the action for the blog to Philosophy.
+		//From there it will call the philosophy.php. That will just call a
+		//list of the  blogs that are in that category. The user will click
+		//on one of those items listed. In doing so they set the action to view_blog
+		//and send the specific blog ID of the  link with it. At that  point
+		//the get_BLog Function can be called in the model in blog_db.php.
 		//This serves the required  information for blog_view.php.
         	break;
     	case 'view_edit_blog_1':
@@ -116,11 +114,11 @@ switch ($action[0]) {
         		$mainText = filter_input(INPUT_POST, 'mainText');
         		$imageFilename = filter_input(INPUT_POST, 'imageFilename');
         		$blogType = filter_input(INPUT_POST, 'blogType');
-		
-			// Validate user data     
+
+			// Validate user data
 		        $validate->text('name', $name,true,3,50);
        		 	$validate->text('mainText', $mainText,true,3, 10000);
-        		$validate->text('imageFilename', $imageFilename, true, 6, 30);        
+        		$validate->text('imageFilename', $imageFilename, true, 6, 30);
         		// If validation errors, redisplay Register page and exit controller
         		if ($fields->hasErrors()) {
         		    include 'blog/blog_edit_1.php';
@@ -153,9 +151,9 @@ function addComponentsFunction($blog_id){
 		$txtChrono=0;
 		foreach($_SESSION["chronos"] as $key=>$chrono){
 			/*BLOG TABLE STRUCTURE NEEDS TO CHANGE
-			A RANDOM GENERATED KEY NEEDS TO BE USED 
-                	AS THE PRIMARY KEY. THE BLOG ID MUST BE 
-			REPEATABLE. THE ORDER WILL BE MANAGED 
+			A RANDOM GENERATED KEY NEEDS TO BE USED
+                	AS THE PRIMARY KEY. THE BLOG ID MUST BE
+			REPEATABLE. THE ORDER WILL BE MANAGED
 			BY CHRONOS */
 			switch($_SESSION['componentType'][$chrono]){
 			case 3:

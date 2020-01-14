@@ -7,9 +7,11 @@
   	<meta name="author" content="Daniel John Dunevant">
 	<?php
 	$actual_link = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
-	if(!isset($onBlogPage)){
+  print strpos($actual_link,'/account/');
+	if(!isset($onBlogPage)||strpos($actual_link,'/account/')!= true){
 		include('model/blog_db_2.php');
 	}
+
 if(strpos($actual_link,'/blog/')== false){
 	$recent_blogs_new=get_Recent_Blogs();
  /* $recent_blogs_new=get_Recent_New();*/

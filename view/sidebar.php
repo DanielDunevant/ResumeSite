@@ -2,7 +2,7 @@
 $uri = filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING);
 $StringBlog = "blog";
 $onBlogPage=0;
-if(strpos($_SERVER['PHP_SELF'],$StringBlog)!== false){
+if(strpos($_SERVER['PHP_SELF'],$StringBlog)!== false||strpos($_SERVER['PHP_SELF'],'account')!== false){
 	$onBlogPage=1;
 }else{
 
@@ -89,12 +89,12 @@ if($onBlogPage==0):
 
 <i class="menuClickStatic menuClick fas fa-bars" id="menuClick1"></i>
 <i class="menuClickStatic fas fa-bars" id="menuClick2"></i>
-<a id = "facebook_1" target="_blank" style="display:none" href = "https://www.facebook.com/daniel.dunevan"><i  class="fixedLinks fab fa-facebook-square"></i></a>
-<a id ="rss_1" style ="display:none"><i  class="fixedLinks fas fa-rss-square"></i></a>
-<a id ="gitHub_1" target="_blank" href="https://github.com/DanielDunevant" style ="display:none"><i class="fixedLinks fab fa-github-square"></i></a>
-<a id = "facebook_2" target="_blank" href = "https://www.facebook.com/daniel.dunevan" ><i class="fixedLinks fab fa-facebook-square"></i></a>
-<a id ="rss_2" ><i  class="fixedLinks fas fa-rss-square"></i></a>
-<a id ="gitHub_2" target="_blank" href="https://github.com/DanielDunevant"><i class="fixedLinks fab fa-github-square"></i></a>
+<a id = "facebook_1" target="_blank"  href = "https://www.facebook.com/daniel.dunevan"><i  class="fixedLinks fab fa-facebook-square"></i></a>
+<a id ="rss_1" ><i  class="fixedLinks fas fa-rss-square"></i></a>
+<a id ="gitHub_1" target="_blank" href="https://github.com/DanielDunevant" ><i class="fixedLinks fab fa-github-square"></i></a>
+<a id = "facebook_2" target="_blank" style="display:none" href = "https://www.facebook.com/daniel.dunevan" ><i class="fixedLinks fab fa-facebook-square"></i></a>
+<a id ="rss_2" style="display:none" ><i  class="fixedLinks fas fa-rss-square"></i></a>
+<a id ="gitHub_2" target="_blank" style="display:none" href="https://github.com/DanielDunevant"><i class="fixedLinks fab fa-github-square"></i></a>
 	<div class="wrapper">
 
 

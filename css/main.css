@@ -18,12 +18,13 @@ BODY
 	height: 100vh;
 	/* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
 	overflow-x: hidden;
-	/* Enable scrolling on the page. */
+	/* Enable scrolling on the page. *
 	overflow-y: auto;
 	/* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
 	perspective: 2px;
 	font-family: 'Righteous', cursive;
 	background:#000 !important;
+	overflow:  hidden;
 }
 HEADER
 {
@@ -777,16 +778,15 @@ input {
     width:200px;
     clear:right;
     right:27px;
-    bottom:-310px !important;
+    bottom:10px ;
     height:73% !important;
     margin:5px;
     background:#fff;
     padding:20px;
     border-radius:10px;
-    margin: 0;
-    position: absolute;               /* 2 */                        /* 3 */
-    transform: translate(0, -50%);
-    overflow-y:scroll;
+    margin: 0px;
+    overflow-y:hidden;
+		display:none
 }
 .RecentSidebar p , .RecentSidebar b{
     font-size: 12px !important;

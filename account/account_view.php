@@ -12,13 +12,17 @@
 		<h2>Your Blogs</h2>
 	    <?php
 		$blogs=array();
-    include ("model/DB_Boom.php");
-		$blogTypes = selectRecords(true,["*"],["blogs"],[""],[""],"","");
+    include ("model/blog_db.php");
+		//$blogTypes = selectRecords(true,["*"],["blogs"],[""],[""],"",");
+    $blogTypes = get_Blogs();
 		foreach($blogTypes as $blogType)
 		{
 			if($blogType!=NULL)
 			{
-		     		$blogs  = array_merge($blogs,selectRecords(true,["*"],["blogs"],[""],["bookType = ".$blogType['blogType']],"",""));
+          //$blogWhereX = selectRecords(true,["*"],["blogs"],[""],["bookType = ".$blogType['blogType']],"","");
+          print "Hi";
+          $blogWhereX = get_Recent_Blogs_Of_Type($blogType['blogType']);
+		     	$blogs  = array_merge($blogs,$blogWhereX);
 			}
 		}
 	 	if (count($blogs) > 0) :
@@ -50,7 +54,7 @@
 		print'<p>Looks like you need to  write some blogs!</p>';
 		endif;
 		print'<a href ="/blog/?action=blog_test">Add Blog</a>';
-    
+
 	endif;
   ?>
 	</div>

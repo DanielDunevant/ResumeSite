@@ -1,4 +1,5 @@
 <?
+print "<p>Entered Blog db 2</p>";
 function get_Blog_Detail($blog_id) {
     global $db;
     $query = '
@@ -6,7 +7,7 @@ function get_Blog_Detail($blog_id) {
         FROM blogs
         WHERE BlogID = :Blog_id
 	';
-	
+
     try {
         $statement = $db->prepare($query);
         $statement->bindValue(':Blog_id', $blog_id);

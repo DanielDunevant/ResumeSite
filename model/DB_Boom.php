@@ -91,12 +91,13 @@ function selectRecords($unique,$columns,$table,$orderBy,$where,$upDown,$limit){
   if($where[0]==""){
     $whereStr="";
   }else{
-    $whereStr="WHERE";
+    $whereStr="WHERE ";
     $whereStr=addDivider($where,$whereStr,"AND");
   }
 
   $query = "SELECT ".$uniqueStr." ".$columnStr." FROM ".$table[0]." ".
             $orderByStr . " " .$whereStr;
+            print $query;
   try {
       $statement = $db->prepare($query);
       foreach($where as $whereThing){
