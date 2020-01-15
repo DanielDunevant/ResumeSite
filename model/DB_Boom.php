@@ -97,7 +97,6 @@ function selectRecords($unique,$columns,$table,$orderBy,$where,$upDown,$limit){
 
   $query = "SELECT ".$uniqueStr." ".$columnStr." FROM ".$table[0]." ".
             $orderByStr . " " .$whereStr;
-            print $query;
   try {
       $statement = $db->prepare($query);
       foreach($where as $whereThing){

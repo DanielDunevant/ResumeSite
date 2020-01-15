@@ -1,5 +1,4 @@
 <?
-print "<p>Entered Blog db 2</p>";
 function get_Blog_Detail($blog_id) {
     global $db;
     $query = '

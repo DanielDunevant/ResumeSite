@@ -12,19 +12,20 @@
 		<h2>Your Blogs</h2>
 	    <?php
 		$blogs=array();
-    include ("model/blog_db.php");
-		//$blogTypes = selectRecords(true,["*"],["blogs"],[""],[""],"",");
-    $blogTypes = get_Blogs();
-		foreach($blogTypes as $blogType)
+    include ("model/DB_Boom.php");
+		$blogTypes = selectRecords(false,["*"],["blogs"],[""],[""],"","");
+    //$blogTypes = get_Blogs();
+		/*foreach($blogTypes as $blogType)
 		{
 			if($blogType!=NULL)
 			{
-          //$blogWhereX = selectRecords(true,["*"],["blogs"],[""],["bookType = ".$blogType['blogType']],"","");
-          print "Hi";
-          $blogWhereX = get_Recent_Blogs_Of_Type($blogType['blogType']);
+          $blogWhereX = selectRecords(true,["BlogID"],["blogs"],[""],["blogType = '".$blogType['blogType']."'"],"","");
+          //$blogWhereX = get_Recent_Blogs_Of_Type($blogType['blogType']);
 		     	$blogs  = array_merge($blogs,$blogWhereX);
 			}
-		}
+		}*/
+
+    $blogs =  selectRecords(false,["*"],["blogs"],[""],["name IS NOT NULL"],"","");
 	 	if (count($blogs) > 0) :
 	      print "<ul>";
     		foreach($blogs as $blog) :
@@ -48,6 +49,7 @@
 				  print '<a href ="/'.$blog_edit_url.'">Edit Blog</a>';
 				  print '<a href ="/'.$blog_delete_url.'">Delete Blog</a>';
           print'</li>';
+          print '<br/>';
         endforeach;
         print'</ul>';
    	else:

@@ -6,13 +6,12 @@
   	<meta name="keywords" content="Daniel John Dunevant, Resume Website, About, Learn more, Code, Programmer">
   	<meta name="author" content="Daniel John Dunevant">
 	<?php
-	$actual_link = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
-  print strpos($actual_link,'/account/');
-	if(!isset($onBlogPage)||strpos($actual_link,'/account/')!= true){
+	$actual_link = "https://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+	if(!isset($onBlogPage)&&strpos($actual_link,'account') ==false){
 		include('model/blog_db_2.php');
 	}
 
-if(strpos($actual_link,'/blog/')== false){
+if(strpos($actual_link,'/blog/')== false && strpos($actual_link,'account')== false){
 	$recent_blogs_new=get_Recent_Blogs();
  /* $recent_blogs_new=get_Recent_New();*/
 	if(strpos($actual_link,'/blog/') !== false){

@@ -2,7 +2,7 @@
 $uri = filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING);
 $StringBlog = "blog";
 $onBlogPage=0;
-if(strpos($_SERVER['PHP_SELF'],$StringBlog)!== false||strpos($_SERVER['PHP_SELF'],'account')!== false){
+if(strpos($_SERVER['PHP_SELF'],$StringBlog)!== false&&strpos($_SERVER['PHP_SELF'],'account')!== false){
 	$onBlogPage=1;
 }else{
 
