@@ -3,9 +3,9 @@
 //Revisit upon later implementation
 /*UNUSED VARIABLES*/
 //Ahosting DB Connection
-$dsn = 'mysql:host=az1-ss20.a2hosting.com;dbname=danieljo_ResumeSiteDB';
-$username = 'danieljo_root';
-$password = "EgoIsUnlearned1!";
+$dsn = 'mysql:host=az1-ss20.a2hosting.com;dbname=*************';
+$username = '*************************';
+$password = "*******************";
 $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 //Localhost DB Connection
 /*$dsn = 'mysql:host=localhost;dbname=resumesite';
